@@ -31,12 +31,12 @@ public class Sudoku {
         //Imprime o tabuleiro no terminal
         public void exibir() {
             for (int i = 0; i < tamanho; i++) {
-                if((i%3 == 0) && (i != 0)){
+                if((i % 3 == 0) && (i != 0)){
                     System.out.println("- - - - - - - - - -");
 
                 }
                 for (int j = 0; j < tamanho; j++) {
-                    if((j%3 == 0) && (j !=0)){
+                    if((j % 3 == 0) && (j != 0)){
                         System.out.print("|");
                     }
                     System.out.print(" " + tabuleiro[i][j]);
