@@ -5,6 +5,5 @@ public class App {
         sudoku.novoTabuleiro(Sudoku.matrizJogo);
 
         sudoku.exibir();
-
     }
 }
