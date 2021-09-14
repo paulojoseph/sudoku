@@ -15,11 +15,12 @@ public class Sudoku {
         };
         
         private int[][] tabuleiro;
+        private int[][] gabarito;
         public static final int vazio = 0; // Células vazias serão indicadas pelo valor 0
         public static final int tamanho = 9; // Tamanho da matriz do tabuleiro Sudoku
         
         //Recebe uma "matriz jogo" como argumento e gera um novo tabuleiro
-        public void novoTabuleiro(int[][] tabuleiro) {
+        public void criarNovoTabuleiro(int[][] tabuleiro) {
             this.tabuleiro = new int[tamanho][tamanho];
             
             for (int i = 0; i < tamanho; i++) {
@@ -27,7 +28,22 @@ public class Sudoku {
                     this.tabuleiro[i][j] = tabuleiro[i][j];
                 }
             }
+
+            criarCopiaTabuleiro();
         }
+
+        //Cria uma cópia do tabuleiro
+        public void criarCopiaTabuleiro() {
+            gabarito = new int[tamanho][tamanho];
+            
+            for (int i = 0; i < tamanho; i++) {
+                for (int j = 0; j < tamanho; j++) {
+                    gabarito[i][j] = tabuleiro[i][j];
+                }
+            }
+        }
+
+
         //Imprime o tabuleiro no terminal
         public void exibir() {
             for (int i = 0; i < tamanho; i++) {
@@ -46,6 +62,52 @@ public class Sudoku {
             }
             
             System.out.println();
+
+            /*for (int i = 0; i < tamanho; i++) {
+                if((i%3 == 0) && (i != 0)){
+                    System.out.println("- - - - - - - - - -");
+
+                }
+                for (int j = 0; j < tamanho; j++) {
+                    if((j%3 == 0) && (j !=0)){
+                        System.out.print("|");
+                    }
+                    System.out.print(" " + gabarito[i][j]);
+                }
+            
+                System.out.println();
+            }*/
+            
+            System.out.println();
+        }
+
+        public void inserir(int lin, int col, int valor){
+                tabuleiro[lin][col] = valor;
+            
+        }
+
+        public void remover(int lin, int col, int valor){
+            tabuleiro[lin][col] = vazio;
+        }
+
+        public boolean checarCelulaVazia(int lin, int col){
+            if(tabuleiro[lin][col] == vazio){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public boolean checarTabuleiroVazio(){
+            for (int lin = 0; lin < tamanho; lin++) {
+                for (int col = 0; col < tamanho; col++) {
+                    // Busca por células vazias (0)
+                    if (tabuleiro[lin][col] == vazio) {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         // Verifica se o valor inserido já foi usado na mesma linha
@@ -81,7 +143,7 @@ public class Sudoku {
         }
 
         // Combina os métodos de validação de linha, coluna e quadrante para validar o valor inserido em uma posição
-        private boolean validarPosicao (int lin, int col, int valor) {
+        public boolean validarPosicao (int lin, int col, int valor) {
 		    return !checarLinha(lin, valor)  &&  !checarColuna(col, valor)  &&  !checarQuadrante(lin, col, valor);
     	}
 
@@ -90,17 +152,17 @@ public class Sudoku {
             for (int lin = 0; lin < tamanho; lin++) {
                 for (int col = 0; col < tamanho; col++) {
                     // Busca por células vazias (0)
-                    if (tabuleiro[lin][col] == vazio) {
+                    if (gabarito[lin][col] == vazio) {
                         // Tenta valores possiveis para a posição
                         for (int valor = 1; valor <= tamanho; valor++) {
                             if (validarPosicao(lin, col, valor)) {
                                 // Valor corresponde as regras do sudoku
-                                tabuleiro[lin][col] = valor;
+                                gabarito[lin][col] = valor;
 
                                 if (resolver()) { // Faz o Backtraking chmando a função resolver recursivamente
                                     return true;
                                 } else { // Se solução inválida, limpa a célula e continua
-                                    tabuleiro[lin][col] = vazio;
+                                    gabarito[lin][col] = vazio;
                                 }
                             }
                         }
@@ -112,6 +174,7 @@ public class Sudoku {
 
             return true; // sudoku resolvido
 	    }
+
 
     }
     
