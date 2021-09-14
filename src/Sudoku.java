@@ -13,7 +13,11 @@ public class Sudoku {
                 {0,0,0,2,0,0,9,0,0},
                 {0,0,1,9,0,4,5,7,0},
         };
-        
+        /*<body>
+  <button style="background-color:blue; border-color:red; color:white">Texto do
+  botão</button>
+ </body>*/
+
         private int[][] tabuleiro;
         private int[][] gabarito;
         public static final int vazio = 0; // Células vazias serão indicadas pelo valor 0
