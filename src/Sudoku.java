@@ -77,17 +77,16 @@ public class Sudoku {
             
                 System.out.println();
             }*/
-            
-            System.out.println();
         }
 
         public void inserir(int lin, int col, int valor){
                 tabuleiro[lin][col] = valor;
-            
+                criarCopiaTabuleiro();
         }
 
         public void remover(int lin, int col, int valor){
             tabuleiro[lin][col] = vazio;
+            criarCopiaTabuleiro();
         }
 
         public boolean checarCelulaVazia(int lin, int col){
@@ -113,7 +112,7 @@ public class Sudoku {
         // Verifica se o valor inserido já foi usado na mesma linha
         private boolean checarLinha(int lin, int valor) {
             for (int i = 0; i < tamanho; i++)
-                if (tabuleiro[lin][i] == valor){
+                if (gabarito[lin][i] == valor){
                     return true;
                 }
             return false;
@@ -122,7 +121,7 @@ public class Sudoku {
         // Verifica se o valor inserido já foi usado na mesma coluna
         private boolean checarColuna(int col, int valor) {
             for (int i = 0; i < tamanho; i++)
-                if (tabuleiro[i][col] == valor){
+                if (gabarito[i][col] == valor){
                     return true;
                 }
             return false;
@@ -136,7 +135,7 @@ public class Sudoku {
             // O for irá percorrer todas as casas do quadrande de [l][c] a [l+3][c+3]
             for (int i = l; i < l + 3; i++)
                 for (int j = c; j < c + 3; j++)
-                    if (tabuleiro[i][j] == valor){
+                    if (gabarito[i][j] == valor){
                         return true;
                     }
             return false;

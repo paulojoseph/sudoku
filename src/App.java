@@ -19,10 +19,9 @@ public class App {
                 System.out.println("Jogada inválida. Usar números de 1 a 9 para selecionar células vazias (0)");
                 jogador.entrarDados();
             }
-
+            sudoku.criarCopiaTabuleiro();
             if (sudoku.validarPosicao(jogador.lin, jogador.col, jogador.valor)){
                 sudoku.inserir(jogador.lin, jogador.col, jogador.valor);
-                sudoku.criarCopiaTabuleiro();
                 if (!sudoku.resolver()){
                     sudoku.remover(jogador.lin, jogador.col, jogador.valor);
                     System.out.println("Jogada inválida: Tabuleiro sem resolução, tente outra vez!");
