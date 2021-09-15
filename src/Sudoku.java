@@ -1,7 +1,7 @@
-
 public class Sudoku {
 
         // Definição de uma matriz simples para jogo. A matriz é um Array 2D.
+
         public static int[][] matrizJogo = {
                 {9,0,0,1,0,0,0,0,5},
                 {0,0,5,0,9,0,2,0,1},
@@ -13,11 +13,43 @@ public class Sudoku {
                 {0,0,0,2,0,0,9,0,0},
                 {0,0,1,9,0,4,5,7,0},
         };
-        /*<body>
-  <button style="background-color:blue; border-color:red; color:white">Texto do
-  botão</button>
- </body>*/
 
+        public static int[][] matrizFacil = {
+                {0,7,5,1,8,2,6,0,0},
+                {8,0,0,0,6,0,0,5,7},
+                {4,0,3,7,9,5,8,0,0},
+                {5,0,4,6,0,7,0,9,8},
+                {7,8,0,0,2,1,0,0,5},
+                {6,3,2,8,5,0,1,7,4},
+                {0,9,6,0,4,3,7,0,2},
+                {0,4,0,9,1,8,0,0,6},
+                {3,5,0,2,0,0,4,0,9},
+        };
+
+        public static int[][] matrizMedio = {
+                {0,7,2,0,0,0,9,0,8},
+                {9,0,0,0,0,0,5,2,0},
+                {0,0,0,0,9,0,0,7,1},
+                {2,9,1,5,0,7,8,4,0},
+                {3,5,4,9,8,2,0,0,0},
+                {0,0,8,3,0,0,0,0,0},
+                {6,0,0,0,4,0,3,0,0},
+                {0,0,0,8,0,5,0,6,0},
+                {0,0,3,6,2,0,4,0,7},
+        };
+
+        public static int[][] matrizDificil = {
+                {0,9,0,0,4,6,2,0,7},
+                {1,7,2,0,0,3,0,8,0},
+                {0,0,0,0,0,0,0,9,0},
+                {0,0,0,0,0,0,3,0,9},
+                {0,0,5,0,3,0,0,0,0},
+                {0,6,0,0,0,0,0,2,0},
+                {0,0,0,0,0,0,0,0,1},
+                {0,0,4,2,5,0,8,0,0},
+                {5,0,7,0,0,0,0,0,0},
+        };
+        
         private int[][] tabuleiro;
         private int[][] gabarito;
         public static final int vazio = 0; // Células vazias serão indicadas pelo valor 0
@@ -47,12 +79,11 @@ public class Sudoku {
             }
         }
 
-
         //Imprime o tabuleiro no terminal
         public void exibir() {
             for (int i = 0; i < tamanho; i++) {
                 if((i % 3 == 0) && (i != 0)){
-                    System.out.println("- - - - - - - - - -");
+                    System.out.println(" - - - - - - - - - -");
 
                 }
                 for (int j = 0; j < tamanho; j++) {
@@ -70,7 +101,6 @@ public class Sudoku {
             /*for (int i = 0; i < tamanho; i++) {
                 if((i%3 == 0) && (i != 0)){
                     System.out.println("- - - - - - - - - -");
-
                 }
                 for (int j = 0; j < tamanho; j++) {
                     if((j%3 == 0) && (j !=0)){
@@ -81,11 +111,13 @@ public class Sudoku {
             
                 System.out.println();
             }*/
+            
+            System.out.println();
         }
 
         public void inserir(int lin, int col, int valor){
                 tabuleiro[lin][col] = valor;
-                criarCopiaTabuleiro();
+                criarCopiaTabuleiro();            
         }
 
         public void remover(int lin, int col, int valor){
@@ -177,7 +209,5 @@ public class Sudoku {
 
             return true; // sudoku resolvido
 	    }
-
-
     }
     
