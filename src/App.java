@@ -1,29 +1,30 @@
 import java.util.Scanner;
 
-public class Main {
+public class App {
     public static void main(String[] args) throws Exception {
 
         Scanner sc = new Scanner(System.in);
 
         //Scanner sc = new Scanner(System.in);
         int nivelDificuldade = -1;
-        boolean loppPergunta = true;
-        String reset = "\u001B[0m";     //define cores
+        boolean loopPergunta = true;
+        String reset = "\u001B[0;0;0m";     //define cores
         String msgFacil = "\033[42m"; //define cores
         String msgMedio = "\033[43m"; //define cores
         String msgDificil = "\033[41m"; //define cores
-        String msgSistema = "\033[47m"; //define cores
+        String msgSistema = "\033[1;1;105m"; //define cores
+        String msgSistema2 = "\033[1;90m"; //define cores
 
         Sudoku sudoku = new Sudoku();
         Jogador jogador = new Jogador();
 
-        System.out.println("+++++++++++++++++++++++++++++++++++++++");
-        System.out.println("++++++++++++++ SUDOKU +++++++++++++++++");
-        System.out.println("+++++++++++++++++++++++++++++++++++++++");
+        System.out.println(msgSistema + "+++++++++++++++++++++++++++++++++++++++");
+        System.out.println("++++++++++++++ " + msgSistema2 + "SUDOKU +++++++++++++++++");
+        System.out.println("+++++++++++++++++++++++++++++++++++++++" + reset);
         System.out.println("|   Escolha uma dificuldade abaixo:   |");
-        System.out.println("|   1 - Fácil                         |");
-        System.out.println("|   2 - Média                         |");
-        System.out.println("|   3 - Dificil                       |");
+        System.out.println("|   1 - " + msgFacil + "Fácil" + reset + "                         |");
+        System.out.println("|   2 - " + msgMedio + "Média" + reset + "                         |");
+        System.out.println("|   3 - " + msgDificil + "Difícil" + reset + "                         |");
         System.out.println("---------------------------------------");
         
         do {
