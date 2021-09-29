@@ -658,12 +658,26 @@ public class Sudoku {
         "\u001B[0;0;0m" = reset formatação
         */
         public void exibir() {
+                String [] cabeçalho = {"  ","  "," L"," I"," N"," H"," A"," S","  ","  ","  "};
+                int letra = 0;
+
                 System.out.println("\n\033[1;120;20mTabuleiro:\033[0m\n");
                 for (int i = 0; i < tamanho; i++) {
-                        if((i % 3 == 0) && (i != 0)){
+                        if(i==0){
+                                System.out.println("\033[0;104m"+"\033[1;97m"+"\s\s\s\s\s\sC\sO\sL\sU\sN\sA\sS\s\s\s\s\s\s"+"\u001B[0;0;0m");
+                                System.out.println("\033[0;104m"+"\033[1;97m"+"\s\s\s\s\s 1 2 3| 4 5 6| 7 8 9"+"\u001B[0;0;0m");
+                        }
+                        if((i % 3 == 0) && (i != 0)) {
+                                //System.out.print("\033[0;104m" + "\033[1;97m" + "\s\s\s\s\s" + "\u001B[0;0;0m");
+                                System.out.printf("\033[0;104m"+"\033[1;97m"+"%s\s-\s"+"\u001B[0;0;0m", cabeçalho[letra]);
                                 System.out.println("\033[47m" + "\033[1;94m" + " - - - - - - - - - -" + "\u001B[0;0;0m");
+                                letra ++;
                         }
                         for (int j = 0; j < tamanho; j++) {
+                                if (j==0){
+                                        System.out.printf("\033[0;104m"+"\033[1;97m"+"%s\s%d\s"+"\u001B[0;0;0m", cabeçalho[letra],(i+1));
+                                        letra++;                
+                                }
                                 if((j % 3 == 0) && (j != 0)){
                                         System.out.print("\033[47m" + "\033[1;94m" + "|"+ "\u001B[0;0;0m");
                                 }if(gabarito[i][j]==1){
@@ -682,15 +696,32 @@ public class Sudoku {
         }
 
         public void inserir(int lin, int col, int valor){
+                tabuleiro[lin][col] = vazio;
                 validarPosicao(lin, col, valor);
                 if(!validarPosicao(lin, col, valor)){
                         gabarito[lin][col] = 2;
                 }else{
                         gabarito[lin][col] = vazio;
                 }
-                tabuleiro[lin][col] = valor;           
+                tabuleiro[lin][col] = valor;
         }
 
+        public void checarTrocas(){
+                for(int i = 0; i<tamanho; i++){
+                        for(int j = 0; j<tamanho; j ++){
+                                if(gabarito[i][j] == 2){
+                                        int teste = tabuleiro[i][j];
+                                        tabuleiro[i][j] = vazio;
+                                        if(validarPosicao(i, j, teste)){
+                                                gabarito[i][j] = vazio;
+                                        }
+                                        tabuleiro[i][j] = teste;
+                                }
+                        }
+                }
+
+        }
+                
         public void remover(){
                 for(int i = 0; i<tamanho; i++){
                         for(int j = 0; j<tamanho; j ++){

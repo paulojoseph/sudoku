@@ -31,6 +31,8 @@ public class App {
             
                 sudoku.inserir(jogador.lin, jogador.col, jogador.valor);
 
+                sudoku.checarTrocas();
+
                 sudoku.exibir();
 
                 if(!sudoku.checarTabuleiroVazio()){
