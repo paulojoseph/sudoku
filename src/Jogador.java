@@ -19,6 +19,7 @@ public class Jogador {
         valor = Integer.parseInt(sc.next());
 
     }
+
     public int menujogo(){
         //Scanner sc = new Scanner(System.in);
         int nivelDificuldade = -1;
