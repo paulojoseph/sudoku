@@ -462,9 +462,11 @@ public class Sudoku {
         //Recebe uma "matriz jogo" como argumento e gera um novo tabuleiro
         public void criarNovoTabuleiro(int[][] tabuleiro, int gerador) {
             this.tabuleiro = new int[tamanho][tamanho];
+
             Sudoku.gerador = gerador;
             for (int i = 0; i < tamanho; i++) {
                 for (int j = 0; j < tamanho; j++) {
+                    this.tabuleiro[i][j] = tabuleiro[i][j];
                         if(i==0){
                                 this.tabuleiro[i][j] = tabuleiro[9*gerador][j];
                         }else{
@@ -508,6 +510,7 @@ public class Sudoku {
                 int letra = 0;
 
                 System.out.printf("\n\033[1;120;20mTabuleiro %d:\033[0m\n\n",(Sudoku.gerador + 1));
+
                 for (int i = 0; i < tamanho; i++) {
                         if(i==0){
                                 System.out.println("\033[0;44m"+"\033[1;97m"+"      C O L U N A S      "+"\u001B[0;0;0m");
