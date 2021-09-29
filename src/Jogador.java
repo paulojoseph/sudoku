@@ -26,14 +26,14 @@ public class Jogador {
 
         boolean loopPergunta = true;
         String reset = "\u001B[0;0;0m";     //define cores
-        String msgFacil = "\033[42m"; //define cores
-        String msgMedio = "\033[43m"; //define cores
-        String msgDificil = "\033[41m"; //define cores
-        String msgSistema = "\033[1;1;105m"; //define cores
-        String msgSistema2 = "\033[1;90m"; //define cores
+        String msgFacil = "\033[1;42m"; //define cores
+        String msgMedio = "\033[1;43m"; //define cores
+        String msgDificil = "\033[1;41m"; //define cores
+        String msgSistema = "\033[30;1;44m"; //define cores
+        String msgSistema2 = "\033[34;1;40m"; //define cores
 
         System.out.println(msgSistema + "+++++++++++++++++++++++++++++++++++++++");
-        System.out.println("++++++++++++++ " + msgSistema2 + "SUDOKU +++++++++++++++++");
+        System.out.println("+++++++++++" + msgSistema2 + "+++ SUDOKU +++" + msgSistema + "++++++++++++++");
         System.out.println("+++++++++++++++++++++++++++++++++++++++" + reset);
         System.out.println("|   Escolha uma dificuldade abaixo:   |");
         System.out.println("|   1 - " + msgFacil + "Fácil" + reset + "                         |");
@@ -49,18 +49,18 @@ public class Jogador {
             else
                 loopPergunta = false;
         } while (loopPergunta);
-
+        
         if (nivelDificuldade == 1) {
 
-            System.out.print("\n     " + msgFacil + " Dificuldade: Fácil  " + reset);
+            System.out.print("\n     " + msgFacil + " Dificuldade: Fácil  \n" + reset);
         }
         if (nivelDificuldade == 2) {
 
-            System.out.print("\n     " + msgMedio + " Dificuldade: Média  " + reset);           
+            System.out.print("\n     " + msgMedio + " Dificuldade: Média  \n" + reset);           
         }
         if (nivelDificuldade == 3) {
 
-            System.out.print("\n     " + msgDificil + " Dificuldade: Difícil" + reset);         
+            System.out.print("\n     " + msgDificil + " Dificuldade: Difícil  \n" + reset);         
         }
 
         return nivelDificuldade;
