@@ -664,18 +664,18 @@ public class Sudoku {
                 System.out.println("\n\033[1;120;20mTabuleiro:\033[0m\n");
                 for (int i = 0; i < tamanho; i++) {
                         if(i==0){
-                                System.out.println("\033[0;104m"+"\033[1;97m"+"\s\s\s\s\s\sC\sO\sL\sU\sN\sA\sS\s\s\s\s\s\s"+"\u001B[0;0;0m");
-                                System.out.println("\033[0;104m"+"\033[1;97m"+"\s\s\s\s\s 1 2 3| 4 5 6| 7 8 9"+"\u001B[0;0;0m");
+                                System.out.println("\033[0;104m"+"\033[1;97m"+"      C O L U N A S      "+"\u001B[0;0;0m");
+                                System.out.println("\033[0;104m"+"\033[1;97m"+"      1 2 3| 4 5 6| 7 8 9"+"\u001B[0;0;0m");
                         }
                         if((i % 3 == 0) && (i != 0)) {
                                 //System.out.print("\033[0;104m" + "\033[1;97m" + "\s\s\s\s\s" + "\u001B[0;0;0m");
-                                System.out.printf("\033[0;104m"+"\033[1;97m"+"%s\s-\s"+"\u001B[0;0;0m", cabeçalho[letra]);
+                                System.out.printf("\033[0;104m"+"\033[1;97m"+"%s - "+"\u001B[0;0;0m", cabeçalho[letra]);
                                 System.out.println("\033[47m" + "\033[1;94m" + " - - - - - - - - - -" + "\u001B[0;0;0m");
                                 letra ++;
                         }
                         for (int j = 0; j < tamanho; j++) {
                                 if (j==0){
-                                        System.out.printf("\033[0;104m"+"\033[1;97m"+"%s\s%d\s"+"\u001B[0;0;0m", cabeçalho[letra],(i+1));
+                                        System.out.printf("\033[0;104m"+"\033[1;97m"+"%s %d "+"\u001B[0;0;0m", cabeçalho[letra],(i+1));
                                         letra++;                
                                 }
                                 if((j % 3 == 0) && (j != 0)){
