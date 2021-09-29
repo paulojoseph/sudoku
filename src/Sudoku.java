@@ -502,37 +502,38 @@ public class Sudoku {
         "\033[1;91m" = negrito vermelho
         "\u001B[0;0;0m" = reset formatação
         */
+	
         public void exibir() {
                 String [] cabeçalho = {"  ","  "," L"," I"," N"," H"," A"," S","  ","  ","  "};
                 int letra = 0;
 
-                System.out.printf("\n\033[1;120;20mTabuleiro %d:\033[0m\n\n",(Sudoku.gerador+1));
+                System.out.println("\n\033[1;120;20mTabuleiro:\033[0m\n");
                 for (int i = 0; i < tamanho; i++) {
                         if(i==0){
-                                System.out.println("\033[0;104m"+"\033[1;97m"+"      C O L U N A S      "+"\u001B[0;0;0m");
-                                System.out.println("\033[0;104m"+"\033[1;97m"+"      1 2 3| 4 5 6| 7 8 9"+"\u001B[0;0;0m");
+                                System.out.println("\033[0;44m"+"\033[1;97m"+"      C O L U N A S      "+"\u001B[0;0;0m");
+                                System.out.println("\033[0;44m"+"\033[1;97m"+"      1 2 3| 4 5 6| 7 8 9"+"\u001B[0;0;0m");
                         }
                         if((i % 3 == 0) && (i != 0)) {
                                 //System.out.print("\033[0;104m" + "\033[1;97m" + "\s\s\s\s\s" + "\u001B[0;0;0m");
-                                System.out.printf("\033[0;104m"+"\033[1;97m"+"%s - "+"\u001B[0;0;0m", cabeçalho[letra]);
-                                System.out.println("\033[47m" + "\033[1;94m" + " - - - - - - - - - -" + "\u001B[0;0;0m");
+                                System.out.printf("\033[0;44m"+"\033[1;97m"+"%s - "+"\u001B[0;0;0m", cabeçalho[letra]);
+                                System.out.println("\033[47m" + "\033[1;34m" + " - - - - - - - - - -" + "\u001B[0;0;0m");
                                 letra ++;
                         }
                         for (int j = 0; j < tamanho; j++) {
                                 if (j==0){
-                                        System.out.printf("\033[0;104m"+"\033[1;97m"+"%s %d "+"\u001B[0;0;0m", cabeçalho[letra],(i+1));
+                                        System.out.printf("\033[0;44m"+"\033[1;97m"+"%s %d "+"\u001B[0;0;0m", cabeçalho[letra],(i+1));
                                         letra++;                
                                 }
                                 if((j % 3 == 0) && (j != 0)){
-                                        System.out.print("\033[47m" + "\033[1;94m" + "|"+ "\u001B[0;0;0m");
+                                        System.out.print("\033[47m" + "\033[1;34m" + "|"+ "\u001B[0;0;0m");
                                 }if(gabarito[i][j]==1){
-                                        System.out.print("\033[47m" + "\033[1;94m" + " " + tabuleiro[i][j] + "\u001B[0;0;0m");
+                                        System.out.print("\033[47m" + "\033[1;34m" + " " + tabuleiro[i][j] + "\u001B[0;0;0m");
                                 }if(gabarito[i][j]==0 && tabuleiro[i][j]==0){
                                         System.out.print("\033[47m" + "\033[1;97m" + " " + tabuleiro[i][j] + "\u001B[0;0;0m");
                                 }if(gabarito[i][j]==0 && tabuleiro[i][j]!=0){
-                                        System.out.print("\033[47m" + "\033[1;90m" + " " + tabuleiro[i][j] + "\u001B[0;0;0m");
+                                        System.out.print("\033[47m" + "\033[1;30m" + " " + tabuleiro[i][j] + "\u001B[0;0;0m");
                                 }if (gabarito[i][j]==2){
-                                        System.out.print("\033[47m" + "\033[1;91m" + " " + tabuleiro[i][j] + "\u001B[0;0;0m");    
+                                        System.out.print("\033[47m" + "\033[1;31m" + " " + tabuleiro[i][j] + "\u001B[0;0;0m");    
                                 }
                         }
                         System.out.println();
