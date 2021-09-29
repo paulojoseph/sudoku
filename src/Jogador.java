@@ -26,20 +26,21 @@ public class Jogador {
 
         boolean loopPergunta = true;
         String reset = "\u001B[0;0;0m";     //define cores
-        String msgFacil = "\033[1;42m"; //define cores
-        String msgMedio = "\033[1;43m"; //define cores
-        String msgDificil = "\033[1;41m"; //define cores
+        String msgFacil = "\033[32;1m"; //define cores
+        String msgMedio = "\033[33;1m"; //define cores
+        String msgDificil = "\033[31;1m"; //define cores
         String msgSistema = "\033[30;1;44m"; //define cores
         String msgSistema2 = "\033[34;1;40m"; //define cores
+        String msgSistema3 = "\033[37;1;40m"; //define cores
 
-        System.out.println(msgSistema + "+++++++++++++++++++++++++++++++++++++++");
-        System.out.println("+++++++++++" + msgSistema2 + "+++ SUDOKU +++" + msgSistema + "++++++++++++++");
+        System.out.println(msgSistema2 + "+++++++++++++++++++++++++++++++++++++++");
+        System.out.println("+++++++++++" + msgSistema2 + "    "+ msgSistema3 + "SUDOKU" + msgSistema2 + "    " + msgSistema2 + "++++++++++++++");
         System.out.println("+++++++++++++++++++++++++++++++++++++++" + reset);
-        System.out.println("|   Escolha uma dificuldade abaixo:   |");
-        System.out.println("|   1 - " + msgFacil + "Fácil" + reset + "                         |");
-        System.out.println("|   2 - " + msgMedio + "Média" + reset + "                         |");
-        System.out.println("|   3 - " + msgDificil + "Difícil" + reset + "                         |");
-        System.out.println("---------------------------------------");
+        System.out.println(msgSistema2 + "|   Escolha uma dificuldade abaixo:   |");
+        System.out.println("|   1 - " + msgFacil + "Fácil" + msgSistema2 + "                         |");
+        System.out.println("|   2 - " + msgMedio + "Média" + msgSistema2 + "                         |");
+        System.out.println("|   3 - " + msgDificil + "Difícil" + msgSistema2 + "                       |");
+        System.out.println("---------------------------------------" + reset);
 
         do {
             System.out.print("Digite o numero da opção desejada:\n> ");
