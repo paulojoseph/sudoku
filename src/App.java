@@ -28,7 +28,9 @@ public class App {
             jogador.entrarDados();
 
             while(!sudoku.checarCelulaVazia(jogador.lin, jogador.col, jogador.valor)){
+
                 System.out.println("\n\033[1;31mJogada inválida. \nUsar números de 1 a 9. \nSelecionar apenas células vazias\u001B[0;0;0m");
+
                 sudoku.exibir();
                 jogador.entrarDados();
             }
