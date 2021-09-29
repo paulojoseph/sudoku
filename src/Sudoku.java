@@ -507,7 +507,7 @@ public class Sudoku {
                 String [] cabeçalho = {"  ","  "," L"," I"," N"," H"," A"," S","  ","  ","  "};
                 int letra = 0;
 
-                System.out.println("\n\033[1;120;20mTabuleiro:\033[0m\n");
+                System.out.printf("\n\033[1;120;20mTabuleiro %d:\033[0m\n\n",(Sudoku.gerador + 1));
                 for (int i = 0; i < tamanho; i++) {
                         if(i==0){
                                 System.out.println("\033[0;44m"+"\033[1;97m"+"      C O L U N A S      "+"\u001B[0;0;0m");
@@ -593,10 +593,12 @@ public class Sudoku {
 
         public boolean checarCelulaVazia(int lin, int col, int valor){
                 if((lin<0) || (lin>8) || (col<0) || (col>8) || (valor < 1) || (valor > 9)){
+                        System.out.println("\n\033[1;91mJogada inválida. \nUsar números de 1 a 9.\u001B[0;0;0m");
                         return false;
-                }if(gabarito[lin][col] != 1){
+                }if(gabarito[lin][col] != 1){           
                         return true;
                 }
+                System.out.println("\n\033[1;91mJogada inválida. \nSelecionar apenas células vazias\u001B[0;0;0m");
                 return false;
         }
 

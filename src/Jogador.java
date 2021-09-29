@@ -12,10 +12,11 @@ public class Jogador {
 
     public void entrarDados(){
 
-        System.out.println("Informe a linha e coluna da célula desejada e o valor a ser preenchido");
-
+        System.out.println("Informe a linha:");
         lin = Integer.parseInt(sc.next()) - 1;
+        System.out.println("Informe a coluna:");
         col = Integer.parseInt(sc.next()) - 1;
+        System.out.println("Informe o número (entre 1 e 9):");
         valor = Integer.parseInt(sc.next());
 
     }
